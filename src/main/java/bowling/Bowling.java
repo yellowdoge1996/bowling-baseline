@@ -1,15 +1,16 @@
 package bowling;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author yellowdoge1996
  */
 public class Bowling {
-    int[] rolls = new int[21];
-    int rollsIndex = 0;
+    List<Integer> rolls = new ArrayList<Integer>();
 
     public void roll(int n) {
-        this.rolls[rollsIndex] = n;
-        this.rollsIndex++;
+        rolls.add(n);
     }
 
     /**
@@ -22,12 +23,12 @@ public class Bowling {
         int score = 0;
 
         for (int i = 0, index = 0, length = 10; i < length; i++,index++){
-            if (this.rolls[index] + this.rolls[index + 1] > 10){
-                score += 10 + this.rolls[index + 1] + this.rolls[index + 1];
-            }else if (this.rolls[index] + this.rolls[index + 1] == 10){
-                score += 10 + this.rolls[++index  + 1];
+            if (rolls.get(index) + rolls.get(index + 1) > 10){
+                score += 10 + rolls.get(index + 1) + rolls.get(index + 1);
+            }else if (rolls.get(index) + rolls.get(index + 1) == 10){
+                score += 10 + rolls.get(++index  + 1);
             }else {
-                score += this.rolls[index] + this.rolls[ ++index  ];
+                score += rolls.get(index) + rolls.get( ++index  );
             }
         }
         return score;
