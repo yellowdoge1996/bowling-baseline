@@ -1,8 +1,5 @@
 package bowling;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author yellowdoge1996
  */
@@ -11,8 +8,8 @@ public class Bowling {
     int rollsIndex = 0;
 
     public void roll(int n) {
-        this.rolls[rollsIndex] = n;
-        this.rollsIndex++;
+        rolls[rollsIndex] = n;
+        rollsIndex++;
     }
 
     /**
@@ -24,13 +21,13 @@ public class Bowling {
 
         int score = 0;
 
-        for (int i = 0, index = 0, length = 10; i < length; i++) {
-            if (this.rolls[index] + this.rolls[index + 1] > 10) {
-                score += 10 + this.rolls[index = index + 1] + this.rolls[index + 1];
-            } else if (this.rolls[index] + this.rolls[index + 1] == 10) {
-                score += 10 + this.rolls[index = index + 2];
+        for (int i = 0, index = 0, length = 10; i < length; i++, index++) {
+            if (rolls[index] + rolls[index + 1] > 10) {
+                score += 10 + rolls[index + 1] + rolls[index + 1];
+            } else if (rolls[index] + rolls[index + 1] == 10) {
+                score += 10 + rolls[++index + 1];
             } else {
-                score += this.rolls[index++] + this.rolls[index++];
+                score += rolls[index] + rolls[++index];
             }
         }
         return score;
