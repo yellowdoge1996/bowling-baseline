@@ -4,7 +4,6 @@ package bowling;
  * @author yellowdoge1996
  */
 public class Bowling {
-//    int score;
     int[] rolls = new int[21];
     int rollsIndex = 0;
 
