@@ -21,14 +21,15 @@ public class Bowling {
     public int getScore() {
 
         int score = 0;
+        rollsIndex = 0;
 
-        for (int i = 0, index = 0; i < ROUND; i++) {
-            if (rolls[index] + rolls[index + 1] > 10) {
-                score += 10 + rolls[index = index + 1] + rolls[index + 1];
-            } else if (rolls[index] + rolls[index + 1] == 10) {
-                score += 10 + rolls[index = index + 2];
+        for (int i = 0; i < ROUND; i++) {
+            if (rolls[rollsIndex] + rolls[rollsIndex + 1] > 10) {
+                score += 10 + rolls[rollsIndex = rollsIndex + 1] + rolls[rollsIndex + 1];
+            } else if (rolls[rollsIndex] + rolls[rollsIndex + 1] == 10) {
+                score += 10 + rolls[rollsIndex = rollsIndex + 2];
             } else {
-                score += rolls[index++] + rolls[index++];
+                score += rolls[rollsIndex++] + rolls[rollsIndex++];
             }
         }
         return score;
