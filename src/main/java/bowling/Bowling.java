@@ -24,13 +24,18 @@ public class Bowling {
             this.score = 0;
         }
 
+        int round = 1;
         int bollNumber = 1;
 
         for(int i = 0; i < this.rollsIndex; i++) {
+            if (round > 10){
+                break;
+            }
             if (bollNumber == 1){
                 if (this.rolls[i] == 10){
                     //Strike
                     this.score = this.score + ALL_DOWN + this.rolls[i + 1] + this.rolls[i + 2];
+                    round ++;
                 }else {
                     bollNumber ++;
                 }
@@ -42,6 +47,7 @@ public class Bowling {
                     //other
                     this.score = this.score + this.rolls[i] + this.rolls[i - 1];
                 }
+                round ++;
                 bollNumber = 1;
             }
         }
