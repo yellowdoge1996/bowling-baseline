@@ -6,6 +6,7 @@ package bowling;
 public class Bowling {
     int[] rolls = new int[21];
     int rollsIndex = 0;
+    private static final int ROUND = 10;
 
     public void roll(int n) {
         rolls[rollsIndex] = n;
@@ -22,7 +23,7 @@ public class Bowling {
         int score = 0;
         rollsIndex = 0;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < ROUND; i++) {
             int count = rolls[rollsIndex] + rolls[rollsIndex + 1];
             score += count;
             if (count >= 10) {
