@@ -24,13 +24,12 @@ public class Bowling {
 
         for (int i = 0; i < 10; i++) {
             int count = rolls[rollsIndex] + rolls[rollsIndex + 1];
-            if (count > 10) {
-                score += count + rolls[rollsIndex++ + 2];
-            } else if (count == 10) {
-                score += count + rolls[rollsIndex = rollsIndex + 2];
-            } else {
-                score += count;
-                rollsIndex += 2;
+            score += count;
+            if (count >= 10) {
+                score += rolls[rollsIndex++ + 2];
+            }
+            if (count <= 10) {
+                rollsIndex ++;
             }
         }
         return score;
