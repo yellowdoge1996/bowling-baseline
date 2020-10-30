@@ -23,18 +23,21 @@ public class Bowling {
             this.score = 0;
         }
 
-        int[] game = new int[10];
         int index = 0;
+        int length = 10;
+//        int round = 1;
+//        int bollNumber = 1;
 
-        for (int i = 0; i < game.length; i++){
+        for (int i = 0; i < length; i++,index++){
             if (this.rolls[index] + this.rolls[index + 1] > 10){
-                this.score += 10 + this.rolls[index + 1] + this.rolls[index + 2];
+                this.score += 10 + this.rolls[index + 1] + this.rolls[index + 1];
             }else if (this.rolls[index] + this.rolls[index + 1] == 10){
-                this.score += 10 + this.rolls[index + 1];
+                this.score += 10 + this.rolls[++index  + 1];
             }else {
-                this.score += this.rolls[index] + this.rolls[index + 1];
+                this.score += this.rolls[index] + this.rolls[ ++index  ];
             }
-            index = index + (((this.rolls[index] + this.rolls[index + 1]) > 10) ? 1 : 2);
+//            index = index + (((this.rolls[index] + this.rolls[index + 1]) > 10) ? 1 : 2);
+            System.out.println(score);
         }
 
 //        for (int i = 0; i < this.rollsIndex; i++) {
@@ -48,7 +51,7 @@ public class Bowling {
 //                    this.score = this.score + this.rolls[i + 1] + this.rolls[i + 2];
 //                } else {
 //                    bollNumber++;
-//                    break;
+//                    continue;
 //                }
 //            } else {
 //                if (this.rolls[i] + this.rolls[i - 1] == 10) {
