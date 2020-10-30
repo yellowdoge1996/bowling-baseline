@@ -50,7 +50,7 @@ public class Bowling {
             } else {
                 if (this.rolls[i] + this.rolls[i - 1] == 10) {
                     //spare
-                    this.score = this.score + ALL_DOWN + this.rolls[i + 1];
+                    this.score = this.score + this.rolls[i + 1];
                 }
 //                else {
                     //other
