@@ -24,13 +24,16 @@ public class Bowling {
 
         int score = 0;
 
-        for (int i = 0, index = 0, length = 10; i < length; i++, index++) {
+        for (int i = 0, index = 0, length = 10; i < length; i++) {
             if (this.rolls[index] + this.rolls[index + 1] > 10) {
                 score += 10 + this.rolls[index + 1] + this.rolls[index + 1];
+                index ++;
             } else if (this.rolls[index] + this.rolls[index + 1] == 10) {
-                score += 10 + this.rolls[++index + 1];
+                score += 10 + this.rolls[index + 2];
+                index += 2;
             } else {
-                score += this.rolls[index] + this.rolls[++index];
+                score += this.rolls[index] + this.rolls[index + 1];
+                index += 2;
             }
         }
         return score;
